@@ -4,7 +4,6 @@ const { autoUpdater } = require('electron-updater');
 let mainWindow;
 
 function createWindow () {
-  console.log("Update check 1");
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
