@@ -4,6 +4,7 @@ const { autoUpdater } = require('electron-updater');
 let mainWindow;
 
 function createWindow () {
+  console.log("Update check 1");
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -15,8 +16,10 @@ function createWindow () {
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
-  mainWindow.once('ready-to-show', () => {
+  mainWindow.webContents.on('did-finish-load', () => {
+    console.log("Update check 2");
     autoUpdater.checkForUpdatesAndNotify();
+    
   });
 }
 
